@@ -7,11 +7,12 @@
 int main()
 {
     
-    float fahr = 0;
-    float celsius = 0;
-    int lower = 0;
-    int upper = 300;
-    int step = 20;
+    float fahr, celsius;
+    float lower, upper,step;
+
+    lower = 0;   /*lower limit of temp */
+    upper = 300; // upper limit 
+    step = 20;   //step size
     
 
     fahr = lower;
@@ -19,7 +20,7 @@ int main()
     while(fahr <= upper)
     {
         celsius = ( 5.0 / 9.0 ) * (fahr - 32);
-        printf("%3.lf %6.1lf\n", fahr, celsius);
+        printf("%3.lf %10.1lf\n", fahr, celsius);
         fahr = fahr + step;
     }
 
