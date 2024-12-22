@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+/*ads*/
 int main()
 {
 
