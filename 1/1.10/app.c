@@ -14,7 +14,7 @@ int main()
             printf("\\b");
         }else if (c == '\\') 
         {
-            printf("\\\\ ");
+            printf("\\\\");
         }else{
             putchar(c);
         }
