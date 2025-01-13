@@ -9,26 +9,15 @@ int main()
         if (c == '\t')
         {
             printf("\\t");
-        }
-        if (c == '\b') 
+        }else if (c == '\b') 
         {
             printf("\\b");
-        }
-        
-        if (c == '\\') 
+        }else if (c == '\\') 
         {
             printf("\\\\ ");
+        }else{
+            putchar(c);
         }
-        if( c != '\t' )
-        {
-            if (c != '\b')
-            {
-                if ( c != '\\') 
-                {
-                    putchar(c);
-                }
-            }
-        }
-    }
+   }
     return 0;
 }
