@@ -34,3 +34,79 @@ int main()
 }
 
 
+oooooooooo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <stdio.h>
+
+#define IN 1
+#define OUT 0
+
+
+int main()
+{
+    int nc,nw,nl,state,c;
+    state = OUT;
+
+    while ( (c = getchar()) != EOF ) {
+       ++nc;
+       if (c =='\n')
+           ++nl;
+       if (c ==' ' || c == '\t' || c ==  '\n')
+           state  = OUT;
+       else if (state == OUT) {
+           state = IN;
+           ++nw;
+       }
+    }
+    
+    return 0;
+}
