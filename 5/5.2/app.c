@@ -2,17 +2,18 @@
 #include <stdio.h>
 #include "app.h"
 
-/* getint: считывает очередное целое число из входного потока в *pn */
+/* getfloat: считывает очередное число из входного потока в *pn */
 
-int getint(int *pn)
+int getfloat(double *pn)
 {
 
     int c, sign;
     int solo_sign;
+    double frac_part;
 
     while (isspace(c=getch()) )
         ;
-    if (!isdigit(c) &&  c != EOF && c != '+' && c != '-' ){
+    if (!isdigit(c) &&  c != EOF && c != '+' && c != '-' && c !='.'){
         ungetch(c); /* не цифра*/
         return 0;
     }
@@ -31,9 +32,18 @@ int getint(int *pn)
 
     }
 
-    for (*pn = 0; isdigit(c); c = getch())
-        *pn= 10 * *pn + ( c - '0');
-    *pn *= sign;
+    //целая часть
+    for (*pn = 0.0; isdigit(c); c = getch())
+        *pn= 10.0 * *pn + ( c - '0');
+    //дробная часть
+    if (c == '.')
+        c = getch();
+    for (frac_part=1.0;isdigit(c);c=getch()){
+        *pn = 10* *pn + (c - '0');
+        frac_part *=10;
+    }
+
+    *pn *= sign/frac_part;
     if (c != EOF)
         ungetch(c);
 
@@ -43,14 +53,14 @@ int getint(int *pn)
 
 int main(void)
 {
-    int c;
+    double c;
     int x;
-    while ((x= getint(&c) )!= EOF){
+    while ((x= getfloat(&c) )!= EOF){
         if (x == 0 )
              break;
              
         printf("returned %d \n",x);
-        printf("*pn  %d\n",c);
+        printf("*pn  %f\n",c);
         }
     
     return 0;
