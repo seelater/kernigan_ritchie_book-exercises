@@ -2,20 +2,7 @@
 #include <stdio.h>
 
 /*strend возвращает 1 если строка t присутствукт в конце строки s и ноль в противном случае*/
-int mystrend(char *s, char *t)
-{
-    char *ps;
-    char *pt; 
-    for ( ; *s; s++){
-        for ( ps=s, pt=t; *pt && *ps == *pt; ps++,pt++ )
-            ;
 
-        if ( (*pt == *ps) == '\0'  && *pt != *t  )
-            return 1;
-    }
-        
-    return 0;
-}
 
 int mystrend_2(char *s,char *t)
 {
@@ -24,17 +11,24 @@ int mystrend_2(char *s,char *t)
     ps=s;
     pt=t;
     
-    while(*ps++)
-        ;
-    while(*pt++)
-        ;
+    while(*s)
+        s++;
+    while(*t)
+        t++;
+    s--;
+    t--;
 
     //s is shorter than t
-    if( ps-s <  pt-t )
+    if( s-ps <  t-pt )
         return 0;
-    for ( ps-=pt-t, pt = t; *ps; ps++,*pt++ )
-        if (*ps != *pt)
+
+    printf("three%d %d\n",*s,*t);
+    for ( ; t>=pt ; s--,t-- )
+        if (*s == *t){
+            printf("%d %d\n",*s,*t);
+        }else 
             return 0;
+
 
     return 1;
 
@@ -43,8 +37,8 @@ int mystrend_2(char *s,char *t)
 int main()
 {
 
-    char *s="abllol";
-    char *t="llola";
+    char *s="acllol";
+    char *t="llol";
     int i;
 
     i = mystrend_2(s,t);
