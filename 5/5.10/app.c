@@ -7,8 +7,8 @@
 int getop(char s[]);
 void push(double);
 double pop(void);
-
 void ungetch(char *);
+int getch(void);
 
 /*calc reverse polish */
 int main(int argc, char* argv[])
@@ -76,11 +76,8 @@ double pop(void)
     }
 }
 
-
 #include <ctype.h>
 
-int getch(void);
-void ungetch(char *);
 
 /* извлекает следующий операнд или знак операции*/
 int getop(char s[])
