@@ -22,6 +22,8 @@ int main(int argc, char *argv[])
     char buf[ALLOCMEM]; /*массив для хранения строк*/
     int nlines = 0; /* кол-во введенных строк*/
 
+    printf("argc %i\n",argc);
+
     while (--argc > 0 && **++argv == '-') {
         while ((c = *++argv[0])>0)
             switch (c) {
@@ -35,8 +37,9 @@ int main(int argc, char *argv[])
             }
     }
     tailsize = (user_tailsize > 0) ? atoi(*argv) : TAILSIZE;
+    printf("after while %i\n",argc);
 
-    if (argc != 1)
+    if (argc!=1 )
         printf("Usage; tail -n lines\n");
     else if ((nlines = readlines(lineptr,buf,MAXLINES)) >= 0 ) {
         writelines(lineptr,nlines,tailsize);
@@ -45,7 +48,6 @@ int main(int argc, char *argv[])
     
     return 0;
 }
-
 
 int readlines(char *lineptr[], char *mem_size, int maxlines)
 {
@@ -73,6 +75,8 @@ int readlines(char *lineptr[], char *mem_size, int maxlines)
 
 void writelines(char *lineprt[],int nlines, int tailsize)
 {
+    if (tailsize >= nlines)
+        tailsize = nlines;
     for (; tailsize>0;--tailsize)
         printf("%s\n",lineprt[nlines-tailsize]);
 }
