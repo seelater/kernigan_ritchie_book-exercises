@@ -1,25 +1,21 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-int main()
-{
-    double c=0;
-    double temp = 0;
+int main(void) {
+    int c;
+    size_t is_space;
 
-    while( (c=getchar() ) !=EOF   )
-    {
-        if (c != ' ')
-        {
+    is_space = 0;
+
+    while((c=getchar()) != EOF) {
+        if (c == ' ' && is_space == 0) {
             putchar(c);
-            temp = 0;
+            is_space = 1;
+        } 
+        if (c != ' '){
+            putchar(c);
+            is_space = 0;
         }
-        if( c == ' ') 
-        {
-            ++temp;
-            if (temp < 2)
-            {
-                putchar(c);
-            }
-        }
-    }   
-    return 0;
+   }
+   return EXIT_SUCCESS;
 }
