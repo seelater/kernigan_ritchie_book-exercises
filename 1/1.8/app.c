@@ -1,29 +1,26 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <stddef.h>
 
-int main()
-{
-    int c = 0;
+int main(void) {
+    int c;
+    size_t spaces, tabs, nl;
 
-    double spaces = 0;
-    double tabs = 0;
-    double new_lines = 0;
+    spaces=0;
+    tabs=0;
+    nl=0;
 
-    while ( (c = getchar()) != EOF)
-    {
-        if ( c == ' ')
-        {
+    while ( (c = getchar()) != EOF ) {
+        if (c == ' ') {
            ++spaces;
         }
-        if ( c == '\t')
-        {
+        if (c == '\t') {
             ++tabs;
         }
-        if (c == '\n')
-        {
-            ++new_lines;
+        if (c == '\n') {
+            ++nl;
         }
     }
-
-    printf("spaces = %.0f tabs = %.0f new lines = %.0f\n",spaces,tabs,new_lines);
-    return 0;
+    printf("spaces = %zu labs = %zu new lines = %zu\n", spaces, tabs, nl);
+    return EXIT_SUCCESS;
 }
