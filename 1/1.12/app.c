@@ -1,19 +1,15 @@
-#include <stdio.h>
+#include <stdio.h> 
+#include <stdlib.h>
 
-int main()
-{
+int main(void) {
+    int c;
 
-    int c = 0;
-    while ( (c = getchar() ) != EOF)
-    {
-        if (c == ' ' || c == '\t')
-        {
+    while ((c = getchar()) != EOF) {
+        if (c == ' ' || c == '\t') {
             putchar('\n');
-        }else
-        {
+        }else {
             putchar(c);
         }
-        
     }
-    return 0;
+    return EXIT_SUCCESS;
 }
