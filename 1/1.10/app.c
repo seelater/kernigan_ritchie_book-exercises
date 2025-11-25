@@ -1,23 +1,19 @@
 #include <stdio.h>
+#include <stdlib.h>
 
+int main(void) {
+    int c;
 
-int main()
-{
-    double c = 0;
-    while ( (c = getchar()) != EOF)
-    {
-        if (c == '\t')
-        {
+    while ((c = getchar()) != EOF) {
+        if (c == '\t') {
             printf("\\t");
-        }else if (c == '\b') 
-        {
+        }else if (c == '\b') {
             printf("\\b");
-        }else if (c == '\\') 
-        {
+        }else if (c == '\\') {
             printf("\\\\");
-        }else{
+        }else {
             putchar(c);
         }
    }
-    return 0;
+    return EXIT_SUCCESS;
 }
