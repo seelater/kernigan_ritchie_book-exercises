@@ -6,10 +6,7 @@ int main(void) {
     int c;
     size_t spaces, tabs, nl;
 
-    spaces=0;
-    tabs=0;
-    nl=0;
-
+    spaces = tabs = nl = 0;
     while ( (c = getchar()) != EOF ) {
         if (c == ' ') {
            ++spaces;
