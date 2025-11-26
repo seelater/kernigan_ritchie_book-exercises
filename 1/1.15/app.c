@@ -1,30 +1,30 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <stddef.h>
+
 #define LOWER 0
 #define UPPER 300
 #define STEP 20
 
+/*convert_fahr_to_cels */
 double convert_to_celsius(double);
-void print_temp(double,double);
 
-int main()
-{
-    double fahr = LOWER;
-    while (fahr <= UPPER)
-    {
-        print_temp(fahr,convert_to_celsius(fahr));
+int main(void) {
+    double fahr;
+    
+    fahr = LOWER;
+    while (fahr <= UPPER) {
+        printf("fahr= %5.0f celsius= %5.1f\n", fahr, convert_to_celsius(fahr));
+
         fahr = fahr + STEP;
     }
-    return 0;
+    return EXIT_SUCCESS;
 }
 
-double convert_to_celsius(double fahr)
-{
-    double celsius=0;
+double convert_to_celsius(double fahr) {
+    double celsius;
+
     celsius = (5.0 / 9.0) * (fahr - 32);
     return celsius;
 }
 
-void print_temp(double temp1, double temp2)
-{
-    printf("%.1lf  %.1lf\n",temp1,temp2);
-}
