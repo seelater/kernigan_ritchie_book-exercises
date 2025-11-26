@@ -5,7 +5,7 @@
 #define ENG_SIZE 26
 #define NUM_SIZE 10
 
-int main()
+int main(void)
 {
     int c;
     int symbols[ENG_SIZE];
