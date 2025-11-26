@@ -15,7 +15,6 @@ int main(void) {
     fahr = LOWER;
     while (fahr <= UPPER) {
         printf("fahr= %5.0f celsius= %5.1f\n", fahr, convert_to_celsius(fahr));
-
         fahr = fahr + STEP;
     }
     return EXIT_SUCCESS;
