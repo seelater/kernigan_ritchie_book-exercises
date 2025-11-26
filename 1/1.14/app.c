@@ -27,7 +27,7 @@ int main(void) {
     /*output*/
     for (int i = 0; i < ENG_SIZE; i++) {
         printf("%c ", i + 'a');
-        for (int j = 1; j <= symbols[i]; j++) {
+        for (int j = 0; j < symbols[i]; j++) {
             printf("=");
         }
         printf("\n");
@@ -36,7 +36,7 @@ int main(void) {
     puts("-----------------");
     for ( int i = 0; i<NUM_SIZE; i++) {
         printf("%i ",i);
-        for (int j = 1; j <= numbers[i]; j++) {
+        for (int j = 0; j < numbers[i]; j++) {
             printf("=");
         }
         printf("\n");
