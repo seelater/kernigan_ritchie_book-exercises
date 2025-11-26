@@ -1,43 +1,40 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-#define DELIMETER 80
+#define MAXLINE 1000
+#define TARGETLEN 80
 
+int getline(char line[], int lim);
 
+int main(void) {
+    char line[MAXLINE];
+    int len;
+    int c;
 
-
-void print_line( char arr[], int arr_len, int delimeter )
-{
-
-    if ( len  > delimeter )
-    {
-
-        for (int i = 0; i < arr_len-1; ++i)
-        {
-            printf("");
+    while ((len=getline(line, MAXLINE)) > 0) {
+        if (line[len-1] != '\n') {
+            while((c = getchar()) != '\n' && c != EOF ) {
+                ++len;
+            }
+        }
+        if (len >= TARGETLEN) {
+            printf("len = %d line = %s",len, line);
         }
     }
+    return EXIT_SUCCESS;
+}
+
+int getline(char s[], int lim) {
+    int i,c;
     
-}
-
-
-
-
-
-int main()
-{
-    int c = 0;
-    while ( (c = getchar()) != EOF ) 
-    {
-        if ( c == ' ' || c == '\n' || c == '\t' )
-        {
-            
-        }
+    for (i = 0; i < lim-1 && (c=getchar())!= EOF && c != '\n'; ++i) {
+        s[i] = c;
     }
-
-
-
-    return 0;
+    if (c == '\n') {
+        s[i]='\n';
+        ++i;
+    }
+    s[i]= '\0';
+    return i;
 }
-
-
 
