@@ -16,9 +16,8 @@ int main(void) {
                 ++len;
             }
         }
-        printf("before = %s\n",line);
         reverse(line);
-        printf("after = %s\n",line);
+        printf("reverse = %s\n",line);
     }
     return EXIT_SUCCESS;
 }
@@ -48,7 +47,6 @@ void reverse(char s[]) {
     if (s[--i] == '\n'){
         --i;
     }
-
     for (int j=0; j < i; ++j,--i) {
         temp = s[i];
         s[i] = s[j];
